@@ -1,10 +1,27 @@
-<div class="form-container">
-    <h1>Add A ToDo</h1>
-    <input [(ngModel)]="title" placeholder="title"/>
-    <textarea [(ngModel)]="description" placeholder="description"></textarea>
-    <select [(ngModel)]="priority">
-       <option *ngFor="let type of priorities" [value]="type">{{ type }}</option>
-        <!-- <option [value]="1">1</option> -->
-    </select>
-    <button (click) = "onSubmitForm()">Submit</button>
+<div class="todo-app">
+    <div class="header">
+        <h1>To-Do Form</h1>
+        <!-- <button class="create-reminder-btn">Add Todo</button> -->
+    </div>
+    <div class="todo-form">
+        <div class="form-group">
+            <input #newTaskInput [(ngModel)]="title" placeholder="Title" class="form-input" />
+        </div>
+        <div class="form-group">
+            <textarea [(ngModel)]="description" placeholder="Description" class="form-input"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="date" [(ngModel)]="date" class="form-input" />
+        </div>
+        <div class="form-group">
+            <select [(ngModel)]="priority" class="form-input">
+                <option *ngFor="let type of priorities" [value]="type">{{ type }}</option>
+            </select>
+        </div>
+        <button class="my-button" (click)="onSubmitForm()">Submit</button>
+    </div>
+</div>
+<div>
+    <app-stepper [steps]="stepList" [currentStepIndex]="currentStep" (OnStepChange)="whenStepChange($event)"></app-stepper>
+
 </div>

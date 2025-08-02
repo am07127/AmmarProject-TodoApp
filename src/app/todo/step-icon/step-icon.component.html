@@ -1,0 +1,17 @@
+<div class="step-icon" [ngClass]="getIconClass()">
+    <ng-container [ngSwitch]="status">
+        <!-- Checkmark for completed -->
+        <svg *ngSwitchCase="'completed'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20,6 9,17 4,12"></polyline>
+        </svg>
+        <svg *ngSwitchCase="'in-progress'" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        </svg>
+        <svg *ngSwitchDefault width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+        </svg>
+
+    </ng-container>
+</div>

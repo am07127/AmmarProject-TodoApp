@@ -1,13 +1,14 @@
 export enum Priority {
-    LOW = "low",
-    MEDIUM = "medium",
-    HIGH = "high"
+    LOW = "LOW",
+    MEDIUM = "MEDIUM",
+    HIGH = "HIGH"
 }
 
 
 export interface ITodo {
-    id: number;
+    _id: string;
     title: string;
     description: string;
     priority: Priority;
+    date?: Date;
 }

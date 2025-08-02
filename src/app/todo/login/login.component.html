@@ -1,0 +1,21 @@
+<div class="todo-app">
+    <div class="instagram-login">
+        <div class="login-container">
+            <h1 class="logo">Instagram</h1>
+
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="login-group">
+                    <input type="text" formControlName="Email" id="username" class="login-input" placeholder=" " required>
+                    <label for="username" class="login-label">Phone number, username, or email</label>
+                </div>
+
+                <div class="login-group">
+                    <input type="password" formControlName="Password" id="password" class="login-input" placeholder=" " required>
+                    <label for="password" class="login-label">Password</label>
+                </div>
+
+                <button type="submit" class="login-button">Log in</button>
+            </form>
+        </div>
+    </div>
+</div>

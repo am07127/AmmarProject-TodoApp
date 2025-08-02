@@ -1,0 +1,235 @@
+// Complete Custom Override for Mat-Horizontal-Stepper
+.custom-stepper {
+
+    // Remove all default Material Design styling
+    ::ng-deep {
+        .mat-horizontal-stepper-header-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0;
+            background: transparent;
+            border: none;
+        }
+
+        .step-label {
+            pointer-events: all;
+
+            cursor: pointer;
+            color: #374151; // Default text color
+
+            &:hover {
+                color: #8B5CF6; // Change color on hover
+            }
+        }
+
+        .mat-horizontal-stepper-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            background: transparent;
+            border: none;
+            flex: 1;
+            position: relative;
+
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 12px; // Center vertically with icons
+                left: 80%; // Start from icon edge
+                width: 100%; // Connect to next icon
+                right: 20%;
+                height: 2px;
+                background-color: #bdc0c9;
+                z-index: 1;
+                transform: translateX(12px); // Adjust for icon radius
+                
+            }
+
+            // Active/completed state
+            &.mat-horizontal-stepper-header-active::after,
+            &.cdk-program-focused::after {
+                background-color: #8B5CF6;
+            }
+
+            &:hover {
+                background: transparent;
+            }
+
+            &.cdk-keyboard-focused,
+            &.cdk-program-focused {
+                background: transparent;
+                outline: none;
+            }
+        }
+
+        .mat-step-header {
+            padding: 0;
+            height: auto;
+            background: transparent;
+            border: none;
+            position: relative;
+            pointer-events: none;
+
+            &:hover {
+                background: transparent;
+            }
+
+            &.cdk-keyboard-focused,
+            &.cdk-program-focused {
+                background: transparent;
+            }
+        }
+
+        // Custom step icon styling
+        .mat-step-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            z-index: 2;
+            position: relative;
+
+
+
+
+        }
+
+        // Hide default connector lines
+        .mat-stepper-horizontal-line {
+            display: none;
+        }
+
+        // Step label styling
+        .mat-step-label {
+            margin-top: 12px;
+            text-align: center;
+
+            .step-label-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+            }
+
+            .step-label {
+                font-size: 14px;
+                font-weight: 500;
+                color: #374151;
+                white-space: nowrap;
+                margin: 0;
+            }
+
+            .step-status {
+                font-size: 12px;
+                font-weight: 500;
+                margin: 0;
+
+                &.status-completed {
+                    color: #059669;
+                }
+
+                &.status-in-progress {
+                    color: #8B5CF6;
+                }
+
+                &.status-pending {
+                    color: #9CA3AF;
+                }
+            }
+        }
+
+        // Hide step content
+        .mat-horizontal-content-container {
+            display: none;
+        }
+
+        .mat-step-content {
+            display: none;
+        }
+
+        // Remove any default animations or transitions that might interfere
+        * {
+            transition: none !important;
+            animation: none !important;
+        }
+    }
+}
+
+// Alternative approach: If ::ng-deep doesn't work in your environment
+// You can move these styles to your global styles.scss file without ::ng-deep
+
+/* 
+// Global styles (add to styles.scss if ::ng-deep doesn't work)
+.custom-stepper .mat-horizontal-stepper-header-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.custom-stepper .mat-horizontal-stepper-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  flex: 1;
+  position: relative;
+}
+
+.custom-stepper .mat-horizontal-stepper-header:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: calc(100% - 24px);
+  width: calc(100% - 48px);
+  height: 2px;
+  background-color: #E5E7EB;
+  z-index: 1;
+}
+
+.custom-stepper .mat-horizontal-stepper-header.mat-horizontal-stepper-header-active::after {
+  background-color: #8B5CF6;
+}
+
+// ... continue with other styles
+*/
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .custom-stepper {
+        ::ng-deep {
+            .mat-step-label {
+                .step-label {
+                    font-size: 12px;
+                }
+
+                .step-status {
+                    font-size: 11px;
+                }
+            }
+
+            .mat-step-icon {
+                width: 20px;
+                height: 20px;
+                font-size: 12px;
+
+                .mat-icon {
+                    font-size: 14px;
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+.step-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  
+  // Completed state - purple background with white checkmark
+  &.icon-completed {
+    background-color: #8B5CF6;
+    color: white;
+  }
+  
+  // In progress state - purple background with white number
+  &.icon-in-progress {
+    background-color: #8B5CF6;
+    color: white;
+  }
+  
+  // Pending state - light gray background with gray number
+  &.icon-pending {
+    background-color: #E5E7EB;
+    color: #9CA3AF;
+  }
+  
+  .step-number {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .step-icon {
+    width: 20px;
+    height: 20px;
+    
+    .step-number {
+      font-size: 12px;
+    }
+    
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

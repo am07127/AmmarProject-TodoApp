@@ -1,5 +1,15 @@
-<div class="main-container">
-  <h1>ToDo List</h1>
-  <app-form (onSubmit)="addTodo($event)"></app-form>
-  <app-list [todoItems]="todoItems"></app-list>
+<nav class="navbar">
+    <div class="navbar-brand">Logo</div>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a routerLink="form" class="nav-link">Home</a></li>
+      
+      <li class="nav-item"><a routerLink="list" class="nav-link">Todo List</a></li>
+      <button *ngIf="authService.isAuthenticatedUser()" class="nav-item btn btn-primary" (click)="logOut()">Log Out</button>
+    </ul>
+    <button class="navbar-toggler">☰</button>
+  </nav>
+  <router-outlet></router-outlet>
+<div class="todo-app">
+  
+  
 </div>

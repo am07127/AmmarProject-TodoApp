@@ -1,24 +1,13 @@
-.list-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 300px;
-  padding: 20px;
-  margin: 10px 0px 0px 0px;
-  border: 2px solid black;
-
-  h1 {
-    text-align: center;
-  }
-
-  ul {
-    list-style-type: none;
-  }
-
-  li {
-    border: 0px;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: rgb(110, 110, 161);
-  }
+/* Add to list.component.css */
+.low-priority {
+  background-color: #d4edda;
+  color: #155724;
+}
+.medium-priority {
+  background-color: #fff3cd;
+  color: #856404;
+}
+.high-priority {
+  background-color: #f8d7da;
+  color: #721c24;
 }

@@ -1,0 +1,25 @@
+<mat-horizontal-stepper [selectedIndex]="currentStepIndex" linear class="custom-stepper">
+  <mat-step *ngFor="let step of steps; let i = index" 
+            [completed]="i < currentStepIndex"
+            [editable]="true">
+    <ng-template matStepLabel>
+      <div class="step-label-container">
+        <div class="step-label" (click)="OnStepChange.emit(i)">{{ step.label }}</div>
+        <div class="step-status" [ngClass]="'status-' + getActualStepStatus(i)">
+          {{ getStatusText(getActualStepStatus(i)) }}
+        </div>
+      </div>
+    </ng-template>
+    
+    <!-- Override ALL icon states -->
+    <ng-template matStepperIcon="number" let-index="index">
+      <app-step-icon [status]="getActualStepStatus(index)" [stepNumber]="index + 1"></app-step-icon>
+    </ng-template>
+    <ng-template matStepperIcon="edit" let-index="index">
+      <app-step-icon [status]="getActualStepStatus(index)" [stepNumber]="index + 1"></app-step-icon>
+    </ng-template>
+    <ng-template matStepperIcon="done" let-index="index">
+      <app-step-icon [status]="getActualStepStatus(index)" [stepNumber]="index + 1"></app-step-icon>
+    </ng-template>
+  </mat-step>
+</mat-horizontal-stepper>
