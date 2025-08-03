@@ -3,7 +3,7 @@
   <!-- Active todos -->
   <div>
     <h2 class="section-title">Todo</h2>
-    <ul class="todo-list">
+    <ul class="todo-list" *ngIf="todoItems$ | async as todoItems">
       <li *ngFor="let item of todoItems; let i = index" class="todo-item">
 
         <div class="todo-checkbox" (click)="onDelete(item._id)">
@@ -14,7 +14,7 @@
           <div class="todo-text">
             <div class="todo-title">{{ item.title }}</div>
             <div class="todo-description">{{ item.description }}</div>
-            <div class="todo-date">24/08/2026</div>
+            <div class="todo-date">{{item.date}}</div>
           </div>
 
           <div class="todo-category" [ngClass]="{
